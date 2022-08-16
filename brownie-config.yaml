@@ -1,0 +1,29 @@
+#need to map dependenciess and compiler. this is probalby done so that there is 
+#compatibility for both github and other imports. not exactyl sure 8/2022
+# works for solidity class
+dependencies:
+  # - <organization/repo>@<version>
+  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+compiler:
+  solc:
+    remappings:
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1'
+dotenv: .env
+networks:
+  default: development
+  rinkeby:
+    eth_usd_price_feed: '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e'
+    verify: True
+  mainnet-fork-dev:
+    eth_usd_price_feed: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419'
+    verify: False
+  development:
+    verify: False
+  ganache-local-5777:
+    verify: False
+  goerli:
+    host: https://goerli.infura.io/v3/b4df14ebd22a4ca581a56608aa7c8670
+    eth_usd_price_feed: '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e'
+    verify: True
+wallets:
+  from_key: ${PRIVATE_KEY}
